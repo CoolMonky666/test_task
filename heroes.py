@@ -1,9 +1,17 @@
 import requests
 
 def find_tallest_hero(gender, work):
+    """
+    find_tallest_hero(gender:str,work:bool) -> tuple
+    Функция для поиска самого высокого персонажа в зависимости от пола и наличия/отсутствия работы
+    :param gender: пол героя
+    :param work: наличие работы
+    :return: кортеж
+    """
     url = "https://akabab.github.io/superhero-api/api/all.json"
     response = requests.request("GET", url)
     result = response.json()
+
     max_height = 0
     id_hero = None
     for elements in result:
